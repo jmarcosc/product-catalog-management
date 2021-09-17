@@ -1,0 +1,2 @@
+INSERT INTO PRODUCT(name, description, price) VALUES('Samsung Galaxy S21', '5G Cinza 128GB, 8GB RAM, Tela Infinita de 6.2, Camera Traseira Tripla, Android 11 e Processador Octa-Core', '3868.20');
+INSERT INTO PRODUCT(name, description, price) VALUES('Apple IPhone XR', '64GB Preto, Tela de 6.1, Camera de 12MP, iOS', '3253.14');
