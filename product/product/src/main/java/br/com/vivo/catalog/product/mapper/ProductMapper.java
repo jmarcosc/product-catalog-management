@@ -5,28 +5,27 @@ import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Component;
 
-import br.com.vivo.catalog.product.dto.ProductDTO;
-import br.com.vivo.catalog.product.dto.ProductFormDTO;
-import br.com.vivo.catalog.product.dto.UpdateProductFormDTO;
+import br.com.vivo.catalog.product.dto.ProductDTOResponse;
+import br.com.vivo.catalog.product.dto.ProductDTORequest;
 import br.com.vivo.catalog.product.model.Product;
 
 @Component
 public class ProductMapper {
 
-	public List<ProductDTO> productsToProductsDTO(List<Product> products) {
-		return products.stream().map(ProductDTO::new).collect(Collectors.toList());
+	public List<ProductDTOResponse> productsToProductsDTO(List<Product> products) {
+		return products.stream().map(ProductDTOResponse::new).collect(Collectors.toList());
 	}
 	
-	public ProductDTO productToProductDTO(Product product) {
-		return new ProductDTO(product);
+	public ProductDTOResponse productToProductDTO(Product product) {
+		return new ProductDTOResponse(product);
 	}
 	
-	public Product productFormToProduct(ProductFormDTO productForm) {
+	public Product productDTOToProduct(ProductDTORequest productForm) {
 		return new Product(productForm.getName(), productForm.getDescription(), productForm.getPrice());
 	}
 	
-	public Product updateProductFormToProduct(UpdateProductFormDTO updateProductForm) {
-		return new Product(updateProductForm.getName(), updateProductForm.getDescription(), updateProductForm.getPrice());
+	public Product updateProductToProduct(ProductDTORequest updateProduct) {
+		return new Product(updateProduct.getName(), updateProduct.getDescription(), updateProduct.getPrice());
 	}
 	
 }

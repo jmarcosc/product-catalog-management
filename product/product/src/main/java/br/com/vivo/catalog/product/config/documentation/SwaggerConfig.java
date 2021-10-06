@@ -8,7 +8,6 @@ import org.springframework.context.annotation.Configuration;
 import springfox.documentation.builders.RequestHandlerSelectors;
 import springfox.documentation.service.ApiInfo;
 import springfox.documentation.service.Contact;
-import springfox.documentation.service.VendorExtension;
 import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
@@ -23,7 +22,7 @@ public class SwaggerConfig {
 	public Docket productApi() {
         return new Docket(DocumentationType.SWAGGER_2)
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("br.com.vivo.product"))
+                .apis(RequestHandlerSelectors.basePackage("br.com.vivo.catalog.product"))
                 .paths(regex("/products.*"))
                 .build()
                 .apiInfo(metaInfo());
@@ -31,7 +30,7 @@ public class SwaggerConfig {
 	
 	private ApiInfo metaInfo() {
 
-        ApiInfo apiInfo = new ApiInfo(
+        return new ApiInfo(
                 "Product Catalog Management Spring Boot REST API",
                 "Spring Boot REST API for product catalog management including getting, registering, updating and deleting products operations",
                 "1.0",
@@ -39,10 +38,9 @@ public class SwaggerConfig {
                 new Contact("João Marcos da Costa", "https://github.com/jmarcosc",
                         "costa.joaomarcos@gmail.com"),
                 "Apache License Version 2.0",
-                "https://www.apache.org/license.html", new ArrayList<VendorExtension>()
+                "https://www.apache.org/license.html", new ArrayList<>()
         );
-
-        return apiInfo;
+        
     }
 	
 }
